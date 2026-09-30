@@ -24,3 +24,10 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+
+const activeCustomer = JSON.parse(localStorage.getItem('ramakkalmedu_session') || 'null');
+if (activeCustomer) {
+  const loginLink = document.querySelector('.login-link');
+  loginLink.textContent = `Hi, ${activeCustomer.name.split(' ')[0]}`;
+  loginLink.href = 'booking.html#my-bookings';
+}
