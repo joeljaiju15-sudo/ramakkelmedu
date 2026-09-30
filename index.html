@@ -35,8 +35,8 @@
         <h1 id="hero-title">Where the wind<br />tells <em>stories.</em></h1>
         <p class="hero-copy">Stand at the edge of Kerala and watch the Western Ghats unfold beneath you — wild, windswept, unforgettable.</p>
         <div class="hero-actions">
-          <a class="button button-light" href="#discover">Start exploring <span>↘</span></a>
-          <a class="text-link" href="#story"><span class="play">▶</span> Feel the place</a>
+          <a class="button button-light" href="booking.html">Book your escape <span>↗</span></a>
+          <a class="text-link" href="#discover"><span class="play">↓</span> Explore first</a>
         </div>
       </div>
       <div class="weather-card" aria-label="Current destination conditions">
@@ -44,6 +44,19 @@
         <div><strong>Always windy</strong><small>Nature's own soundtrack</small></div>
       </div>
       <a class="scroll-cue" href="#discover"><span>Scroll to wander</span><b>↓</b></a>
+      <form class="quick-book" id="quick-book" aria-label="Quick booking search">
+        <div class="quick-field"><label for="quick-type">I want to book</label><select id="quick-type"><option value="stay">A peaceful stay</option><option value="safari">An off-road safari</option></select></div>
+        <div class="quick-field"><label for="quick-date">Choose a date</label><input id="quick-date" type="date" required /></div>
+        <div class="quick-field"><label for="quick-guests">Travellers</label><select id="quick-guests"><option>1 traveller</option><option selected>2 travellers</option><option>3 travellers</option><option>4+ travellers</option></select></div>
+        <button type="submit">Check availability <span>→</span></button>
+      </form>
+    </section>
+
+    <section class="trust-strip" aria-label="Booking benefits">
+      <div><span>✓</span><p><strong>Instant confirmation</strong><small>Know your trip is secured</small></p></div>
+      <div><span>♧</span><p><strong>Local experiences</strong><small>Hosted by people from the hills</small></p></div>
+      <div><span>↺</span><p><strong>Flexible planning</strong><small>Friendly support when plans change</small></p></div>
+      <div class="guest-love"><b>4.9</b><p><strong>Loved by travellers</strong><small>Based on recent guest stays</small></p></div>
     </section>
 
     <section class="intro section" id="discover">
@@ -134,6 +147,7 @@
     <div class="footer-links"><a href="#discover">Discover</a><a href="booking.html">Bookings</a><a href="login.html">Customer login</a></div>
     <a class="back-top" href="#top">Back to the top ↑</a>
   </footer>
+  <a class="mobile-book" href="booking.html"><span>Plan your escape</span><b>Book now →</b></a>
   <script src="script.js"></script>
 </body>
 </html>

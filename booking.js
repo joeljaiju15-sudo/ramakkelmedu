@@ -2,7 +2,8 @@ const session = Store.current();
 const tabs = document.querySelectorAll('.booking-tab');
 const panes = document.querySelectorAll('.booking-pane');
 const form = document.getElementById('booking-form');
-let activeType = new URLSearchParams(location.search).get('type') === 'safari' ? 'safari' : 'stay';
+const pageParams = new URLSearchParams(location.search);
+let activeType = pageParams.get('type') === 'safari' ? 'safari' : 'stay';
 const today = new Date();
 const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
 const nextDay = new Date(today); nextDay.setDate(today.getDate() + 2);
@@ -11,6 +12,16 @@ document.querySelectorAll('input[type="date"]').forEach(input => input.min = iso
 document.getElementById('checkin').value = iso(tomorrow);
 document.getElementById('checkout').value = iso(nextDay);
 document.getElementById('safariDate').value = iso(tomorrow);
+const requestedDate = pageParams.get('date');
+if (requestedDate && requestedDate >= iso(tomorrow)) {
+  if (activeType === 'safari') document.getElementById('safariDate').value = requestedDate;
+  else {
+    document.getElementById('checkin').value = requestedDate;
+    const requestedCheckout = new Date(`${requestedDate}T12:00:00`);
+    requestedCheckout.setDate(requestedCheckout.getDate() + 1);
+    document.getElementById('checkout').value = iso(requestedCheckout);
+  }
+}
 
 if (session) {
   document.getElementById('welcome-user').textContent = `Hi, ${session.name.split(' ')[0]}`;

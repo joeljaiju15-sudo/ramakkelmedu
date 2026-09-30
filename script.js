@@ -31,3 +31,17 @@ if (activeCustomer) {
   loginLink.textContent = `Hi, ${activeCustomer.name.split(' ')[0]}`;
   loginLink.href = 'booking.html#my-bookings';
 }
+
+const quickBook = document.getElementById('quick-book');
+if (quickBook) {
+  const quickDate = document.getElementById('quick-date');
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  quickDate.min = tomorrow.toISOString().split('T')[0];
+  quickDate.value = quickDate.min;
+  quickBook.addEventListener('submit', event => {
+    event.preventDefault();
+    const type = document.getElementById('quick-type').value;
+    window.location.href = `booking.html?type=${type}&date=${quickDate.value}`;
+  });
+}
